@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<variable
+			name="viewModel"
+			type="com.sudansh.trending.ui.MainViewModel" />
+	</data>
+
+	<android.support.design.widget.CoordinatorLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<android.support.v4.widget.SwipeRefreshLayout
+			android:id="@+id/swipe"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+			<android.support.constraint.ConstraintLayout
+				android:id="@+id/mainContainer"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				tools:context=".ui.MainActivity">
+
+				<android.support.v7.widget.RecyclerView
+					android:id="@+id/recyclerView"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:visibility="@{!viewModel.isLoading}"
+					app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					tools:listitem="@layout/item_repo" />
+
+				<ProgressBar
+					android:id="@+id/progressBar"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:visibility="@{viewModel.isLoading}"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+
+			</android.support.constraint.ConstraintLayout>
+		</android.support.v4.widget.SwipeRefreshLayout>
+	</android.support.design.widget.CoordinatorLayout>
+</layout>

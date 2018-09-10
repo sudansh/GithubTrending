@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Trending</string>
+    <string name="title_detail">Repo Detail</string>
+    <string name="title_main">Trending</string>
+    <string name="transitionName">transitionName</string>
+    <string name="transitionDescription">transitionDescription</string>
+    <string name="error_message">Something went wrong. Try Again?</string>
+    <string name="yes">yes</string>
+    <string name="author">Author: <b>%s</b></string>
+    <string name="language">Language: <b>%s</b></string>
+	<string name="description">Description</string>
+</resources>

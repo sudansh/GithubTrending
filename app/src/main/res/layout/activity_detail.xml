@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:context=".ui.DetailActivity">
+
+	<data>
+
+		<variable
+			name="repo"
+			type="com.sudansh.trending.data.db.entity.Repo" />
+	</data>
+
+	<android.support.constraint.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_margin="@dimen/default_padding">
+
+		<TextView
+			android:id="@+id/name"
+			style="@style/Base.TextAppearance.AppCompat.Headline"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:text="@{repo.name}"
+			android:transitionName="@string/transitionName"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			tools:text="repository name" />
+
+		<TextView
+			android:id="@+id/stars"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/default_padding_half"
+			android:layout_marginTop="@dimen/default_padding_half"
+			android:drawableStart="@drawable/ic_star"
+			android:gravity="center"
+			android:text="@{`` + repo.stars}"
+			android:textSize="16sp"
+			app:layout_constraintTop_toBottomOf="@id/name"
+			tools:text="5" />
+
+		<TextView
+			android:id="@+id/forks"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/default_padding_half"
+			android:layout_marginTop="@dimen/default_padding_half"
+			android:drawableStart="@drawable/ic_fork"
+			android:gravity="center"
+			android:text="@{``+ repo.forks}"
+			android:textSize="16sp"
+			app:layout_constraintStart_toEndOf="@id/stars"
+			app:layout_constraintTop_toBottomOf="@id/name"
+			tools:text="12" />
+
+		<TextView
+			android:id="@+id/language"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/default_padding_half"
+			android:layout_marginTop="@dimen/default_padding_half"
+			android:gravity="center"
+			android:text="@{@string/language(repo.languageString)}"
+			android:textSize="16sp"
+			app:layout_constraintTop_toBottomOf="@id/stars"
+			tools:text="Language Java" />
+
+		<TextView
+			android:id="@+id/author"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/default_padding_half"
+			android:text="@{@string/author(repo.author)}"
+			android:textSize="20sp"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/language"
+			tools:text="Author name" />
+
+		<TextView
+			android:id="@+id/descriptionTitle"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/default_padding_half"
+			android:text="@string/description"
+			android:textSize="20sp"
+			android:textStyle="bold"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/author" />
+
+		<TextView
+			android:id="@+id/desc"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/default_padding_half"
+			android:text="@{repo.description}"
+			android:textSize="18sp"
+			android:transitionName="@string/transitionDescription"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/descriptionTitle"
+			tools:text="this is some description more description more description" />
+
+	</android.support.constraint.ConstraintLayout>
+</layout>
