@@ -2,9 +2,9 @@ package com.sudansh.trending.ui
 
 import android.content.Context
 import android.content.Intent
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
 import com.sudansh.trending.R
 import com.sudansh.trending.data.db.entity.Repo

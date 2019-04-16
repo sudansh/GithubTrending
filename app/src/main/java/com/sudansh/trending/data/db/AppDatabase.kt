@@ -1,7 +1,7 @@
 package com.sudansh.trending.data.db
 
-import android.arch.persistence.room.Database
-import android.arch.persistence.room.RoomDatabase
+import androidx.room.Database
+import androidx.room.RoomDatabase
 import com.sudansh.trending.data.db.dao.RepoDao
 import com.sudansh.trending.data.db.entity.Repo
 

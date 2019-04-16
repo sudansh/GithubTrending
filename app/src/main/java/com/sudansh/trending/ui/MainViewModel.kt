@@ -1,9 +1,9 @@
 package com.sudansh.trending.ui
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
-import android.databinding.ObservableBoolean
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.databinding.ObservableBoolean
 import com.sudansh.trending.data.Resource
 import com.sudansh.trending.data.repository.RepoRepository
 import com.sudansh.trending.data.db.entity.Repo

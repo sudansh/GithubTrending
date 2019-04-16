@@ -1,6 +1,6 @@
 package com.sudansh.trending.util
 
-import android.databinding.BindingConversion
+import androidx.databinding.BindingConversion
 import android.view.View
 
 @BindingConversion

@@ -1,16 +1,16 @@
 package com.sudansh.trending.di
 
-import com.sudansh.trending.data.network.LiveDataCallAdapterFactory
 import com.sudansh.trending.data.network.ApiService
+import com.sudansh.trending.data.network.LiveDataCallAdapterFactory
 import okhttp3.OkHttpClient
-import org.koin.dsl.module.applicationContext
+import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-val remoteModule = applicationContext {
-	bean { createOkHttpClient() }
-	bean { createWebService<ApiService>(get()) }
+val remoteModule = module {
+	single { createOkHttpClient() }
+	single { createWebService<ApiService>(get()) }
 }
 
 fun createOkHttpClient(): OkHttpClient {

@@ -1,13 +1,13 @@
 package com.sudansh.trending.data.repository
 
-import android.arch.lifecycle.LiveData
-import com.sudansh.trending.data.network.ApiResponse
-import com.sudansh.trending.data.network.AppExecutors
-import com.sudansh.trending.data.network.NetworkBoundResource
+import androidx.lifecycle.LiveData
 import com.sudansh.trending.data.Resource
 import com.sudansh.trending.data.db.dao.RepoDao
 import com.sudansh.trending.data.db.entity.Repo
+import com.sudansh.trending.data.network.ApiResponse
 import com.sudansh.trending.data.network.ApiService
+import com.sudansh.trending.data.network.AppExecutors
+import com.sudansh.trending.data.network.NetworkBoundResource
 import com.sudansh.trending.testing.OpenForTesting
 
 @OpenForTesting

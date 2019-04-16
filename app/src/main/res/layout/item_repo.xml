@@ -10,7 +10,7 @@
 			type="com.sudansh.trending.data.db.entity.Repo" />
 	</data>
 
-	<android.support.constraint.ConstraintLayout
+	<androidx.constraintlayout.widget.ConstraintLayout
 		android:id="@+id/mainContainer"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -55,6 +55,6 @@
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintTop_toTopOf="parent"
 			tools:text="5" />
-	</android.support.constraint.ConstraintLayout>
+	</androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

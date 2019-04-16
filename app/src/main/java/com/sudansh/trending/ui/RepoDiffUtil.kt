@@ -1,6 +1,6 @@
 package com.sudansh.trending.ui
 
-import android.support.v7.util.DiffUtil
+import androidx.recyclerview.widget.DiffUtil
 import com.sudansh.trending.data.db.entity.Repo
 
 class RepoDiffUtil(private val newList: List<Repo>, private val oldList: List<Repo>) :

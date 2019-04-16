@@ -1,7 +1,7 @@
 package com.sudansh.trending
 
-import android.arch.core.executor.testing.InstantTaskExecutorRule
-import android.arch.lifecycle.Observer
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.Observer
 import com.sudansh.trending.data.Resource
 import com.sudansh.trending.data.db.entity.Repo
 import com.sudansh.trending.data.repository.RepoRepository

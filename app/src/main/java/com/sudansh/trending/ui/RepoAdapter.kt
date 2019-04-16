@@ -1,8 +1,8 @@
 package com.sudansh.trending.ui
 
-import android.databinding.DataBindingUtil
-import android.support.v7.util.DiffUtil
-import android.support.v7.widget.RecyclerView
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
@@ -11,7 +11,7 @@ import com.sudansh.trending.databinding.ItemRepoBinding
 import com.sudansh.trending.data.db.entity.Repo
 
 class RepoAdapter(private var callback: OnItemClickListener) :
-		RecyclerView.Adapter<RepoViewHolder>() {
+	androidx.recyclerview.widget.RecyclerView.Adapter<RepoViewHolder>() {
 	private val listRepo: MutableList<Repo> = mutableListOf()
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoViewHolder {
@@ -44,7 +44,7 @@ class RepoAdapter(private var callback: OnItemClickListener) :
 }
 
 class RepoViewHolder(private val binding: ItemRepoBinding) :
-		RecyclerView.ViewHolder(binding.root) {
+	androidx.recyclerview.widget.RecyclerView.ViewHolder(binding.root) {
 
 	fun binding() = binding
 }

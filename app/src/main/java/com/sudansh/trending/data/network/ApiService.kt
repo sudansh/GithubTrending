@@ -1,6 +1,6 @@
 package com.sudansh.trending.data.network
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import com.sudansh.trending.data.db.entity.Repo
 import retrofit2.http.GET
 import retrofit2.http.Url

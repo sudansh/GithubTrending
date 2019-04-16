@@ -2,25 +2,24 @@ package com.sudansh.trending.ui
 
 import android.app.ActivityOptions
 import android.content.Intent
-import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.DividerItemDecoration
 import android.util.Pair
 import android.view.View
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
+import com.google.android.material.snackbar.Snackbar
 import com.sudansh.trending.R
 import com.sudansh.trending.data.Resource
 import com.sudansh.trending.data.Status
-import com.sudansh.trending.databinding.ActivityMainBinding
 import com.sudansh.trending.data.db.entity.Repo
+import com.sudansh.trending.databinding.ActivityMainBinding
 import com.sudansh.trending.util.action
 import com.sudansh.trending.util.observeNonNull
 import com.sudansh.trending.util.snack
 import kotlinx.android.synthetic.main.activity_main.*
-import org.koin.android.architecture.ext.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity(), OnItemClickListener {
 	private val viewModel by viewModel<MainViewModel>()
@@ -34,7 +33,10 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
 		binding.setLifecycleOwner(this)
 
 		val divider =
-			DividerItemDecoration(recyclerView.context, DividerItemDecoration.VERTICAL).apply {
+			androidx.recyclerview.widget.DividerItemDecoration(
+				recyclerView.context,
+				androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
+			).apply {
 				setDrawable(ContextCompat.getDrawable(baseContext, R.drawable.item_divider)!!)
 			}
 
@@ -73,13 +75,19 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
 	}
 
 	override fun onItemClick(repo: Repo, name: TextView, description: TextView) {
-		val options = ActivityOptions.makeSceneTransitionAnimation(this,
-																   Pair.create<View, String>(name,
-																							 getString(
-																								 R.string.transitionName)),
-																   Pair.create<View, String>(
-																	   description,
-																	   getString(R.string.transitionDescription)))
+		val options = ActivityOptions.makeSceneTransitionAnimation(
+			this,
+			Pair.create<View, String>(
+				name,
+				getString(
+					R.string.transitionName
+				)
+			),
+			Pair.create<View, String>(
+				description,
+				getString(R.string.transitionDescription)
+			)
+		)
 		Intent(this, DetailActivity::class.java).apply {
 			putExtra(DetailActivity.KEY_REPO, repo)
 		}.also { startActivity(it, options.toBundle()) }
