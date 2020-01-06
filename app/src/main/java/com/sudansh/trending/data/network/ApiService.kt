@@ -7,6 +7,6 @@ import retrofit2.http.Url
 
 interface ApiService {
 
-	@GET()
+	@GET
 	fun getTrending(@Url url: String = "https://github-trending-api.now.sh/repositories?since=weekly"): LiveData<ApiResponse<List<Repo>>>
 }

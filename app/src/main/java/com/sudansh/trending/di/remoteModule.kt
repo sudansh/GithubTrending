@@ -9,8 +9,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 val remoteModule = module {
-	single { createOkHttpClient() }
-	single { createWebService<ApiService>(get()) }
+	factory { createOkHttpClient() }
+	factory { createWebService<ApiService>(get()) }
 }
 
 fun createOkHttpClient(): OkHttpClient {
