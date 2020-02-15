@@ -8,9 +8,9 @@ import com.sudansh.trending.data.network.ApiResponse
 import com.sudansh.trending.data.network.ApiService
 import com.sudansh.trending.data.network.AppExecutors
 import com.sudansh.trending.data.network.NetworkBoundResource
-import com.sudansh.trending.testing.OpenForTesting
 
-@OpenForTesting
+
+
 class RepoRepository(
 	val appExecutors: AppExecutors,
 	val repoDao: RepoDao,

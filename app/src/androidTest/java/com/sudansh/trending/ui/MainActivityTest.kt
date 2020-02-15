@@ -17,18 +17,17 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito.mock
+import org.mockito.MockitoAnnotations
 
 @RunWith(AndroidJUnit4::class)
 class MainActivityTest {
 
 	@get:Rule
 	val rule = IntentsTestRule(MainActivity::class.java, true, true)
-	private lateinit var viewModel: MainViewModel
 
 	@Before
 	fun setup() {
-		viewModel = mock(MainViewModel::class.java)
+		MockitoAnnotations.initMocks(this)
 	}
 
 	@Test
