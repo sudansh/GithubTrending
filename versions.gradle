@@ -31,6 +31,7 @@ def versions = [
         rv_animator          : "3.0.0",
         room                 : '2.2.3',
         swipeRefresh         : "1.0.0",
+        mockito              : "2.22.0"
 ]
 def deps = [
         activity_ktx         : "androidx.activity:activity-ktx:$versions.activity_ktx",
@@ -97,11 +98,9 @@ deps.espresso = [
                 "androidx.test.espresso.idling:idling-concurrent:$versions.espresso"
         ]]
 
-deps.powermock = [
-        "org.powermock:powermock-core:$versions.powermock",
-        "org.powermock:powermock-module-junit4:$versions.powermock",
-        "org.powermock:powermock-api-mockito2:$versions.powermock",
-        "org.powermock:powermock-module-junit4:$versions.powermock"
+deps.mockito = [
+        core   : "org.mockito:mockito-core:$versions.mockito",
+        android: "org.mockito:mockito-android:$versions.mockito",
 ]
 deps.test = [
         junit    : "androidx.test.ext:junit:$versions.ext_junit",

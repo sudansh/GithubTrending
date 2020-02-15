@@ -49,9 +49,6 @@ android {
     }
 }
 ext {
-    koin_version = '2.0.0-rc-3'
-    retrofit = '2.7.1'
-    room = '2.2.3'
     mockito = "2.22.0"
     espresso = '3.1.0'
 }
@@ -78,10 +75,9 @@ dependencies {
     }
 
     //mockito
-    testImplementation "org.mockito:mockito-core:$mockito"
-    androidTestImplementation "org.mockito:mockito-android:$mockito"
+    testImplementation deps.mockito.core
+    androidTestImplementation deps.mockito.android
     testImplementation 'com.squareup.okhttp3:mockwebserver:4.3.0'
-    testImplementation 'junit:junit:4.13'
 
     //espresso
     androidTestImplementation "androidx.test.espresso:espresso-intents:$espresso"
