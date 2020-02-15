@@ -26,4 +26,3 @@ object LiveDataUtils {
 }
 
 fun <T> LiveData<T>.liveValue(): T = LiveDataUtils.getValue(this)
-

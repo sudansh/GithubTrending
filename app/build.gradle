@@ -10,12 +10,12 @@ allOpen {
 }
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion build_versions.target_sdk
     dataBinding.enabled = true
     defaultConfig {
         applicationId "com.sudansh.trending"
-        minSdkVersion 24
-        targetSdkVersion 29
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -44,45 +44,38 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 ext {
     koin_version = '2.0.0-rc-3'
     retrofit = '2.7.1'
     room = '2.2.3'
-    mockito = "2.7.19"
+    mockito = "2.22.0"
     espresso = '3.1.0'
 }
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
-    //android arch
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0-rc03'
-    testImplementation 'androidx.arch.core:core-testing:2.1.0'
-    androidTestImplementation 'androidx.arch.core:core-testing:2.1.0'
-
-    //android support
-    implementation 'androidx.appcompat:appcompat:1.2.0-alpha01'
-    implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha01'
-    implementation 'com.google.android.material:material:1.2.0-alpha03'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
+    implementation deps.kotlin.stdlib
+    implementation deps.constraint_layout
+    implementation deps.material
+    implementation deps.appcompat
+    implementation deps.lifecycle.extensions
+    implementation deps.swipeRefresh
 
     //room
-    implementation "androidx.room:room-runtime:$room"
-    kapt "androidx.room:room-compiler:$room"
+    implementation deps.room.runtime
+    kapt deps.room.compiler
 
     //Retrofit
-    implementation "com.squareup.retrofit2:retrofit:$retrofit"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
-    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation deps.retrofit
 
     //Koin
-    implementation "org.koin:koin-android:$koin_version"
-    implementation "org.koin:koin-androidx-scope:$koin_version"
-    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
-    testImplementation "org.koin:koin-test:$koin_version"
-    androidTestImplementation "org.koin:koin-test:$koin_version"
+    implementation deps.koin.core
+    testImplementation deps.koin.test
+    androidTestImplementation(deps.koin.test) {
+        exclude group: 'org.mockito'
+    }
 
     //mockito
     testImplementation "org.mockito:mockito-core:$mockito"
@@ -100,4 +93,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
         exclude group: 'com.google.code.findbugs', module: 'jsr305'
     })
+    testImplementation deps.lifecycle.test
+    androidTestImplementation deps.lifecycle.test
+    androidTestImplementation(deps.test.junit) {
+        exclude group: "org.junit"
+    }
 }
