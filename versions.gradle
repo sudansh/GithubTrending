@@ -12,7 +12,7 @@ def versions = [
         constraint_layout    : '2.0.0-beta4',
         core_ktx             : '1.2.0-beta02',
         coroutines           : "1.3.2",
-        espresso             : '3.2.0',
+        espresso             : '3.1.0',
         ext_junit            : '1.1.2-alpha03',
         gson                 : "2.8.6",
         junit                : '4.13',
@@ -31,7 +31,8 @@ def versions = [
         rv_animator          : "3.0.0",
         room                 : '2.2.3',
         swipeRefresh         : "1.0.0",
-        mockito              : "2.22.0"
+        mockito              : "2.22.0",
+        mockwebserver        : "4.3.0",
 ]
 def deps = [
         activity_ktx         : "androidx.activity:activity-ktx:$versions.activity_ktx",
@@ -47,7 +48,8 @@ def deps = [
         recyclerview         : "androidx.recyclerview:recyclerview:$versions.recyclerview",
         runner               : "com.android.support.test:runner:$versions.runner",
         rules                : "com.android.support.test:rules:$versions.rules",
-        swipeRefresh         : "androidx.swiperefreshlayout:swiperefreshlayout:$versions.swipeRefresh"
+        swipeRefresh         : "androidx.swiperefreshlayout:swiperefreshlayout:$versions.swipeRefresh",
+        mockwebserver        : "com.squareup.okhttp3:mockwebserver:$versions.mockwebserver"
 ]
 
 deps.rxjava = [
