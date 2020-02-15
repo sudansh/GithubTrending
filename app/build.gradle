@@ -78,13 +78,8 @@ dependencies {
 
     //espresso
     androidTestImplementation deps.espresso.other
-    androidTestImplementation(deps.espresso.core, {
-        exclude group: 'com.android.support', module: 'support-annotations'
-        exclude group: 'com.google.code.findbugs', module: 'jsr305'
-    })
+    androidTestImplementation deps.espresso.core
     testImplementation deps.lifecycle.test
     androidTestImplementation deps.lifecycle.test
-    androidTestImplementation(deps.test.junit) {
-        exclude group: "org.junit"
-    }
+    androidTestImplementation deps.test.junit
 }
