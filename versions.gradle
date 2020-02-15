@@ -1,7 +1,7 @@
 ext.deps = [:]
 
 ext.build_versions = [
-        min_sdk   : 24,
+        min_sdk   : 26,
         target_sdk: 29
 ]
 

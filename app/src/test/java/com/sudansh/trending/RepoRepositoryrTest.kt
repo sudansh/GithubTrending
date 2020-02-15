@@ -4,10 +4,10 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.sudansh.trending.data.Resource
-import com.sudansh.trending.data.repository.RepoRepository
 import com.sudansh.trending.data.db.dao.RepoDao
 import com.sudansh.trending.data.db.entity.Repo
 import com.sudansh.trending.data.network.ApiService
+import com.sudansh.trending.data.repository.RepoRepository
 import com.sudansh.trending.util.InstantAppExecutors
 import com.sudansh.trending.util.mock
 import org.junit.Rule
@@ -22,6 +22,7 @@ import org.mockito.Mockito.verify
 
 @RunWith(JUnit4::class)
 class RepoRepositoryrTest {
+
 	private val dao = mock(RepoDao::class.java)
 	private val api = mock(ApiService::class.java)
 	private val repo = RepoRepository(InstantAppExecutors(), dao, api)
@@ -40,7 +41,7 @@ class RepoRepositoryrTest {
 	fun testNetworkCall() {
 		val dbData = MutableLiveData<List<Repo>>()
 		`when`(dao.getTrending()).thenReturn(dbData)
-		val call = ApiUtil.successCall(createListRepo("foo", "bar", "zoo",10))
+		val call = ApiUtil.successCall(createListRepo("foo", "bar", "zoo", 10))
 		`when`(api.getTrending()).thenReturn(call)
 		val observer = mock<Observer<Resource<List<Repo>>>>()
 
